@@ -1,3 +1,9 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: :9090
 proxies:
   - {name: 🇭🇰 亚马逊香港, server: awshk.3dxcn.tk, port: 443, type: vmess, uuid: c341e36f-2f03-4fe8-aefd-808e7398a9ec, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: "/kzxfvws?ed=2048", headers: {Host: awshk.3dxcn.tk}}}
   - {name: 🇰🇷 韩国春川2, server: krau.3dxcn.tk, port: 443, type: vmess, uuid: c458cb6d-52fe-4a27-a859-0007550ffcdf, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /gdlxvws, headers: {Host: krau.3dxcn.tk}}}
@@ -9707,68 +9713,3 @@ rules:
   - DOMAIN-KEYWORD,aria2,🇨🇳 国内网站
   - GEOIP,CN,🇨🇳 国内网站
   - MATCH,🐟 漏网之鱼
-
-port: 3333
-socks-port: 23456
-redir-port: 23457
-allow-lan: true
-mode: Rule
-log-level: error
-external-controller: 192.168.3.1:9990
-experimental:
-  ignore-resolve-fail: true
-external-ui: dashboard
-secret: "clash"
-profile:
-  store-selected: true
-ipv6: false
-
-hosts:
-  router.asus.com: 192.168.3.1
-  services.googleapis.cn: 74.125.193.94
-  ipv6.msftconnecttest.com: 2a01:111:2003::52 #勿删
-  www.msftconnecttest.com: 13.107.4.52 #勿删
-
-dns:
-  enable: true
-  ipv6: false
-  listen: :23453
-  # These nameservers are used to resolve the DNS nameserver hostnames below.
-  # Specify IP addresses only
-  default-nameserver:
-    - 223.5.5.5
-    - 8.8.8.8
-  enhanced-mode: redir-host 
-  nameserver:
-    - https://223.5.5.5/dns-query
-    - tls://101.101.101.101:853
-    - https://doh.pub/dns-query
-  fallback:
-    - https://doh.dns.sb/dns-query
-    - tcp://208.67.222.222:443
-    - tls://dns.google
-  fallback-filter:
-    geoip: true
-    ipcidr:
-      - 240.0.0.0/4
-    domain:
-      #NetFlix
-      - '+.netflix.com.edgesuite.net'
-      - '+.fast.com'
-      - '+.netflix.com'
-      - '+.netflix.net'
-      - '+.netflixdnstest0.com'
-      - '+.netflixdnstest1.com'
-      - '+.netflixdnstest2.com'
-      - '+.netflixdnstest3.com'
-      - '+.netflixdnstest4.com'
-      - '+.netflixdnstest5.com'
-      - '+.netflixdnstest6.com'
-      - '+.netflixdnstest7.com'
-      - '+.netflixdnstest8.com'
-      - '+.netflixdnstest9.com'
-      - '+.nflxext.com'
-      - '+.nflximg.com'
-      - '+.nflximg.net'
-      - '+.nflxso.net'
-      - '+.nflxvideo.net'
